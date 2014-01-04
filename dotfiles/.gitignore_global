@@ -1,0 +1,7 @@
+# Ignore Weird Mac Files
+
+.DS_Store
+._*
+
+# Sass
+.sass-cache

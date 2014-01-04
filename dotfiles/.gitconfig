@@ -1,0 +1,34 @@
+[user]
+  email = shaunbent@me.com
+  name = Shaun Bent
+
+[alias]
+  st = status
+  sts = status -sb
+  unstage = reset HEAD --
+
+[core]
+  excludesfiles = ~/.gitignore_global
+
+[color]
+  ui = true
+  commit = red
+
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+
+[color "diff"]
+  meta = yellow
+  frag = magenta
+  old = red
+  new = green
+
+[color "status"]
+  added = red
+  changed = blue
+  untracked = magenta
+
+[push]
+	default = current

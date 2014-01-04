@@ -8,4 +8,5 @@ ln -s ~/Google\ Drive/System\ Configuration/dotfiles/zsh      ~/.zsh
 ln -s ~/Google\ Drive/System\ Configuration/dotfiles/zsh/zshrc ~/.zshrc
 
 #alias git files
-ln -s ~/Google\ Drive/System\ Configuration/dotfiles/gitconfig ~/.gitconfig
+ln -s ~/Google\ Drive/System\ Configuration/dotfiles/.gitconfig ~/.gitconfig
+ln -s ~/Google\ Drive/System\ Configuration/dotfiles/.gitignore_global ~/.gitignore_global
