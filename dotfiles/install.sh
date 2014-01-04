@@ -1,16 +1,11 @@
 #! /bin/sh
 
 # install.sh
-# expects dotfiles repo to be kept in ~/bin/
+# expects dotfiles repo to be kept in ~/Google\ Drive/System\ Configuration/
 
 #alias zsh files
-ln -s ~/bin/dotfiles/zsh      ~/.zsh
-ln -s ~/bin/dotfiles/zsh/zshrc ~/.zshrc
-
-#alias vim files
-ln -s ~/bin/dotfiles/vim       ~/.vim
-ln -s ~/bin/dotfiles/vim/vimrc ~/.vimrc
-ln -s ~/bin/dotfiles/vim/gvimrc ~/.gvimrc
+ln -s ~/Google\ Drive/System\ Configuration/dotfiles/zsh      ~/.zsh
+ln -s ~/Google\ Drive/System\ Configuration/dotfiles/zsh/zshrc ~/.zshrc
 
 #alias git files
-ln -s ~/bin/dotfiles/gitconfig ~/.gitconfig
+ln -s ~/Google\ Drive/System\ Configuration/dotfiles/gitconfig ~/.gitconfig
