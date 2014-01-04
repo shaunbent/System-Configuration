@@ -23,6 +23,9 @@ export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 # So instead I'm moving that to the start of my path
 export PATH="/usr/local/share/npm/bin:$PATH"
 
+# misc alias
+alias hd="cd ~"
+
 # Vagrant alias
 alias vs="vagrant suspend"
 alias vu="vagrant up"
@@ -30,6 +33,7 @@ alias vd="vagrant destroy"
 alias vr="vagrant box remove responsive virtualbox"
 alias vst="vagrant status"
 
+# git alias
 alias gs='git status'
 alias gc='git commit'
 alias gl='git log'

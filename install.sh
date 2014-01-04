@@ -1,7 +1,6 @@
 #! /bin/sh
 
-# install.sh
-# expects dotfiles repo to be kept in ~/Google\ Drive/System\ Configuration/
+# run `sh install.sh`
 
 #alias zsh files
 ln -s ~/Google\ Drive/System\ Configuration/dot/.zshrc ~/.zshrc
