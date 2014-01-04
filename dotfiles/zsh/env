@@ -36,10 +36,3 @@ bakpur='\e[45m'   # Purple
 bakcyn='\e[46m'   # Cyan
 bakwht='\e[47m'   # White
 txtrst='\e[0m'    # Text Reset
-
-. `brew --prefix`/etc/profile.d/z.sh
-z --add "$(pwd -P)"
-
-eval "$(rbenv init -)"
-
-export PYTHONPATH='/Library/Python/2.7/site-packages/'
