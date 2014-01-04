@@ -25,6 +25,7 @@ export PATH="/usr/local/share/npm/bin:$PATH"
 
 # misc alias
 alias hd="cd ~"
+alias change_hosts="sudo nano /etc/hosts"
 
 # Vagrant alias
 alias vs="vagrant suspend"
