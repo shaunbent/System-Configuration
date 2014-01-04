@@ -1,0 +1,6 @@
+# Configures the environment
+. ~/bin/dotfiles/zsh/env
+# Configures the prompt
+. ~/bin/dotfiles/zsh/prompt
+# Includes and aliases or shell functions
+. ~/bin/dotfiles/zsh/aliases

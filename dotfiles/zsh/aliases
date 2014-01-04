@@ -1,0 +1,88 @@
+#Git Commands
+alias gs='git status'
+alias gc='git commit'
+alias gl='git log'
+alias ga='git add'
+
+alias switch='/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend'
+alias a='cd /Volumes/Atlantis/Stuff/a'
+
+alias shoot='phantomjs ~/bin/screen.js'
+
+function take {
+	mkdir -p $1
+	cd $1
+}
+
+function google () {
+  lynx "google.com/search?q=$1"
+}
+
+function server() {
+    local port="${1:-8000}"
+    open "http://localhost:${port}/" && python -m SimpleHTTPServer "$port"
+}
+
+alias lock='/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend'
+
+function min () {
+  local file=`echo $1 | sed 's/.js$//'`
+  java -jar ~/bin/compiler.jar --js $1 --create_source_map "./$file-min.js.map" --source_map_format=V3 --js_output_file "$file.min.js"
+}
+
+
+# Parameters: as many paths to files playable by `afplay` as you like
+function tunes () {
+  for arg in $@
+  do
+    echo $arg
+    afplay $arg
+  done
+}
+
+function audio () {
+  if [ $2 ]
+  then
+    name=$2
+  else
+    name=$1
+  fi
+
+  x="/Users/andrew/.youtube-dl-$RANDOM-$RANDOM.mp4"
+  youtube-dl --output $x --format=18 "$1"
+  #ffmpeg -i $x -f mp3 -ab 192000 -vn "$name.mp3"
+  vaudio $x $name
+  rm $x
+  #afplay "$name.mp3"
+}
+
+function vaudio () {
+  if [ $2 ]
+  then
+    name=$2
+  else
+    name=$1
+  fi
+  ffmpeg -i $1 -f mp3 -ab 192000 -vn "$2.mp3"
+}
+
+function bible () {
+  if [ $1 ]
+  then
+    date=$*
+  else
+    date=`date +"%B %e"`; 
+  fi; 
+
+  pcregrep -M "$date\n[\w\s-]*\n\n" ~/Documents/Dropbox/notes/refx-2010-05-29-12-45-refx\ Bible\ Listening\ Schedule.txt
+}
+
+function js () {
+  curl -O http://code.jquery.com/jquery-latest.js
+  curl -O http://backbonejs.org/backbone-min.js
+  curl -O http://underscorejs.org/underscore-min.js
+  touch app.js
+}
+
+
+alias mutt='cd ~/Desktop && mutt'
