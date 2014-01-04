@@ -30,7 +30,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 
-. ~/bin/dotfiles/zsh/env
-. ~/bin/dotfiles/zsh/aliases
+. ~/Google\ Drive/System\ Configuration/dotfiles/zsh/env
+. ~/Google\ Drive/System\ Configuration/dotfiles/zsh/aliases
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

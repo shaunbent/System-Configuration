@@ -4,10 +4,8 @@ alias gc='git commit'
 alias gl='git log'
 alias ga='git add'
 
-alias switch='/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend'
-alias a='cd /Volumes/Atlantis/Stuff/a'
 
-alias shoot='phantomjs ~/bin/screen.js'
+# alias a='cd /Volumes/Atlantis/Stuff/a'
 
 function take {
 	mkdir -p $1

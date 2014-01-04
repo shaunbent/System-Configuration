@@ -13,4 +13,4 @@ function precmd {
 	printf "\n$cyn%s:$ylw%s$c%$(($TERMWIDTH-${#HOST}-${#cwd}))s$rst\n" "$HOST" "$cwd" "$vcinfo"
 }
 
-PROMPT="→ "
+PROMPT="> "
