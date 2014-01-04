@@ -26,9 +26,9 @@
   new = green
 
 [color "status"]
-  added = red
-  changed = blue
-  untracked = magenta
+  added = green
+  changed = red
+  untracked = blue
 
 [push]
 	default = current
