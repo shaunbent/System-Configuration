@@ -4,9 +4,8 @@
 # expects dotfiles repo to be kept in ~/Google\ Drive/System\ Configuration/
 
 #alias zsh files
-ln -s ~/Google\ Drive/System\ Configuration/dotfiles/zsh      ~/.zsh
-ln -s ~/Google\ Drive/System\ Configuration/dotfiles/zsh/zshrc ~/.zshrc
+ln -s ~/Google\ Drive/System\ Configuration/dot/.zshrc ~/.zshrc
 
 #alias git files
-ln -s ~/Google\ Drive/System\ Configuration/dotfiles/.gitconfig ~/.gitconfig
-ln -s ~/Google\ Drive/System\ Configuration/dotfiles/.gitignore_global ~/.gitignore_global
+ln -s ~/Google\ Drive/System\ Configuration/dot/.gitconfig ~/.gitconfig
+ln -s ~/Google\ Drive/System\ Configuration/dot/.gitignore_global ~/.gitignore_global

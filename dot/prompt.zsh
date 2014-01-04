@@ -24,8 +24,8 @@ CMD_MAX_EXEC_TIME=5
 
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git # You can add hg too if needed: `git hg`
-zstyle ':vcs_info:git*' formats ' %b'
-zstyle ':vcs_info:git*' actionformats ' %b|%a'
+zstyle ':vcs_info:git*' formats ' [git: %b]'
+zstyle ':vcs_info:git*' actionformats ' [git: %b|%a]'
 
 # enable prompt substitution
 setopt PROMPT_SUBST
@@ -63,7 +63,7 @@ precmd() {
 
     vcs_info
     # Add `%*` to display the time
-    print -P '\n%F{blue}%~%F{236}%F{red}$vcs_info_msg_0_`git_dirty` %F{yellow}$username%f %F{yellow}`cmd_exec_time`%f'
+    print -P '\n%F{yellow}%~%F{236}%F{red}$vcs_info_msg_0_`git_dirty` %F{blue}$username%f %F{green}`cmd_exec_time`%f'
     # Reset value since `preexec` isn't always triggered
     unset cmd_timestamp
 }
@@ -73,6 +73,6 @@ ip() {
 }
 
 # Prompt turns red if the previous command didn't exit with 0
-PROMPT='%(?.%F{white}.%F{red})❯%f '
+PROMPT='%(?.%F{white}.%F{red})>%f '
 # Can be disabled:
 # PROMPT='%F{magenta}❯%f '

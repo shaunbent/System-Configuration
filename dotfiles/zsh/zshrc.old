@@ -1,6 +1,0 @@
-# Configures the environment
-. ~/Google\ Drive/System\ Configuration/dotfiles/zsh/env
-# Configures the prompt
-. ~/Google\ Drive/System\ Configuration/dotfiles/zsh/prompt
-# Includes and aliases or shell functions
-. ~/Google\ Drive/System\ Configuration/dotfiles/zsh/aliases
