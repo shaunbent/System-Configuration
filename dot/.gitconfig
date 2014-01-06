@@ -10,6 +10,9 @@
 [core]
   excludesfiles = ~/.gitignore_global
 
+[http]
+  proxy = www-cache.reith.bbc.co.uk:80
+
 [color]
   ui = true
   commit = red
