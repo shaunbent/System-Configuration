@@ -1,0 +1,75 @@
+{
+	"binary_file_patterns":
+	[
+		"*.jpg",
+		"*.jpeg",
+		"*.png",
+		"*.gif",
+		"*.ttf",
+		"*.tga",
+		"*.dds",
+		"*.ico",
+		"*.eot",
+		"*.pdf",
+		"*.swf",
+		"*.jar",
+		"*.zip"
+	],
+	"bold_folder_labels": true,
+	"color_scheme": "Packages/specialsboard/Special Boards - Special Edition.tmtheme",
+	"draw_indent_guides": true,
+	"draw_white_space": "selection",
+	"file_exclude_patterns":
+	[
+		"._*",
+		"*.pyc",
+		"*.pyo",
+		"*.exe",
+		"*.dll",
+		"*.obj",
+		"*.o",
+		"*.a",
+		"*.lib",
+		"*.so",
+		"*.dylib",
+		"*.ncb",
+		"*.sdf",
+		"*.suo",
+		"*.pdb",
+		"*.idb",
+		".DS_Store",
+		"*.class",
+		"*.psd",
+		"*.db"
+	],
+	"folder_exclude_patterns":
+	[
+		".svn",
+		".git",
+		".hg",
+		"CVS",
+		".sass-cache"
+	],
+	"font_face": "Inconsolata",
+	"font_size": 14,
+	"highlight_line": true,
+	"highlight_modified_tabs": true,
+	"ignore_inodes": true,
+	"ignored_packages":
+	[
+		"Vintage",
+		"CSScomb",
+		"SublimeLinter",
+		"AdvancedNewFile"
+	],
+	"match_brackets": true,
+	"match_brackets_angle": true,
+	"match_brackets_braces": true,
+	"match_brackets_content": true,
+	"match_brackets_square": true,
+	"remember_open_files": true,
+	"remember_open_folders": true,
+	"scroll_past_end": true,
+	"scroll_speed": 2,
+	"tab_size": 2
+}
