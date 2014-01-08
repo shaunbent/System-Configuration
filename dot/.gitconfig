@@ -1,6 +1,6 @@
 [user]
-  email = shaunbent@me.com
-  name = Shaun Bent
+	email = shaunbent@me.com
+	name = Shaun Bent
 
 [alias]
   st = status
@@ -9,6 +9,7 @@
 
 [core]
   excludesfiles = ~/.gitignore_global
+  excludesfile = /Users/bents02/.gitignore_global
 
 [http]
   proxy = www-cache.reith.bbc.co.uk:80
@@ -35,3 +36,11 @@
 
 [push]
 	default = current
+
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
