@@ -26,6 +26,7 @@ export PATH="/usr/local/share/npm/bin:$PATH"
 # misc alias
 alias hd="cd ~"
 alias change_hosts="sudo nano /etc/hosts"
+alias ws="cd ~/Workspace/onesport/webapp/static-versioned"
 
 # Vagrant alias
 alias vs="vagrant suspend"
