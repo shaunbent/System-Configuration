@@ -24,9 +24,17 @@ export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 export PATH="/usr/local/share/npm/bin:$PATH"
 
 # misc alias
+alias s='open -a "Sublime Text 2"'
 alias hd="cd ~"
 alias change_hosts="sudo nano /etc/hosts"
-alias ws="cd ~/Workspace/onesport/webapp/static-versioned"
+alias sites="cd ~/Google\ Drive/Sites"
+alias ws="cd ~/Workspace/onesport"
+alias zsh="cd ~/Google\ Drive/System\ Configuration && s ."
+
+# Sandbox alias
+alias su='VBoxManage startvm "BBC Sandbox" --type headless'
+alias ss='ssh root@192.168.192.10'
+alias sh='VBoxManage controlvm "BBC Sandbox" poweroff'
 
 # Vagrant alias
 alias vs="vagrant suspend"
@@ -38,7 +46,7 @@ alias vst="vagrant status"
 # git alias
 alias gs='git status'
 alias gc='git commit'
-alias gl='git log'
+alias gd='git diff'
 alias ga='git add'
 
 # Proxy stuff
