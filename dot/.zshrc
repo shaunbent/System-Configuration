@@ -27,9 +27,13 @@ export PATH="/usr/local/share/npm/bin:$PATH"
 alias s='open -a "Sublime Text 2"'
 alias hd="cd ~"
 alias change_hosts="sudo nano /etc/hosts"
+alias drive="cd ~/Google\ Drive"
 alias sites="cd ~/Google\ Drive/Sites"
-alias ws="cd ~/Workspace/onesport"
-alias zsh="cd ~/Google\ Drive/System\ Configuration && s ."
+alias ws="cd ~/Workspace"
+alias onesport="cd ~/Workspace/onesport"
+alias live="cd ~/Workspace/liveexperience"
+alias zsh="atom ~/Google\ Drive/System\ Configuration"
+alias willy="ssh root@37.139.31.162"
 
 # Sandbox alias
 alias su='VBoxManage startvm "BBC Sandbox" --type headless'
@@ -52,7 +56,7 @@ alias ga='git add'
 # Proxy stuff
 export NETWORK_LOCATION="$(/usr/sbin/scselect 2>&1 | egrep '^ \* ' | sed 's:.*(\(.*\)):\1:')"
 
-if [ $NETWORK_LOCATION = 'BBC On Network'  ]; then
+if [ $NETWORK_LOCATION = 'BBC On Network' ]; then
     export http_proxy='http://www-cache.reith.bbc.co.uk:80'
     export https_proxy='http://www-cache.reith.bbc.co.uk:80'
     export ftp_proxy='ftp-gw.reith.bbc.co.uk:21'
@@ -62,6 +66,8 @@ if [ $NETWORK_LOCATION = 'BBC On Network'  ]; then
     export HTTPS_PROXY='http://www-cache.reith.bbc.co.uk:80'
     export FTP_PROXY='ftp-gw.reith.bbc.co.uk:21'
     export SOCKS_PROXY='socks-gw.reith.bbc.co.uk:1085'
+
+    git config --global http.proxy $http_proxy
 else
     unset http_proxy
     unset https_proxy
@@ -72,6 +78,8 @@ else
     unset HTTPS_PROXY
     unset FTP_PROXY
     unset SOCKS_PROXY
+
+    git config --global --unset http.proxy
 fi;
 
 # Color grep results

@@ -4,7 +4,7 @@
 # MIT License
 
 # Change this to your own username
-DEFAULT_USERNAME='shaunbent'
+DEFAULT_USERNAME='bents02'
 
 # Threshold (sec) for showing cmd exec time
 CMD_MAX_EXEC_TIME=5
