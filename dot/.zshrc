@@ -57,18 +57,30 @@ alias ga='git add'
 export NETWORK_LOCATION="$(/usr/sbin/scselect 2>&1 | egrep '^ \* ' | sed 's:.*(\(.*\)):\1:')"
 
 if [ $NETWORK_LOCATION = 'BBC On Network' ]; then
+    echo 'Enabling Reith Proxies'
+
     export http_proxy='http://www-cache.reith.bbc.co.uk:80'
     export https_proxy='http://www-cache.reith.bbc.co.uk:80'
-    export ftp_proxy='ftp-gw.reith.bbc.co.uk:21'
+    export ftp_proxy='ftp://ftp-gw.reith.bbc.co.uk:21'
     export socks_proxy='socks-gw.reith.bbc.co.uk:1085'
+    export no_proxy='*.bbc.co.uk,localhost,127.0.0.1'
 
     export HTTP_PROXY='http://www-cache.reith.bbc.co.uk:80'
     export HTTPS_PROXY='http://www-cache.reith.bbc.co.uk:80'
-    export FTP_PROXY='ftp-gw.reith.bbc.co.uk:21'
+    export FTP_PROXY='ftp://ftp-gw.reith.bbc.co.uk:21'
     export SOCKS_PROXY='socks-gw.reith.bbc.co.uk:1085'
+    export NO_PROXY='*.bbc.co.uk,localhost,127.0.0.1'
 
     git config --global http.proxy $http_proxy
+
+    # If SSH config has been prefixed with an underscore, move it back so it can be used
+	if [ -f ~/.ssh/_config ]
+        then
+        	mv ~/.ssh/_config ~/.ssh/config
+	fi
 else
+    echo 'Disabling Reith Proxies'
+
     unset http_proxy
     unset https_proxy
     unset ftp_proxy
@@ -78,6 +90,9 @@ else
     unset HTTPS_PROXY
     unset FTP_PROXY
     unset SOCKS_PROXY
+
+    # prefix config file in SSH (So git/mercural are not going through reith)
+	mv ~/.ssh/config ~/.ssh/_config
 
     git config --global --unset http.proxy
 fi;

@@ -9,8 +9,8 @@
 
 [core]
   excludesfiles = ~/.gitignore_global
-  excludesfile = /Users/bents02/.gitignore_global
-  
+	excludesfile = /Users/bents02/.gitignore_global
+
 [color]
   ui = true
   commit = red
@@ -42,13 +42,12 @@
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [http]
+[url "https://github"]
+	insteadOf = git://github
 [http]
 [http]
 [http]
 [http]
 [http]
 [http]
-[http]
-[http]
-[http]
-[http]
+	proxy = http://www-cache.reith.bbc.co.uk:80
