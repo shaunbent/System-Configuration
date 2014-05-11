@@ -57,7 +57,7 @@ alias ga='git add'
 export NETWORK_LOCATION="$(/usr/sbin/scselect 2>&1 | egrep '^ \* ' | sed 's:.*(\(.*\)):\1:')"
 
 if [ $NETWORK_LOCATION = 'BBC On Network' ]; then
-    echo 'Enabling Reith Proxies'
+    echo '!-- Enabling Reith Proxies --!'
 
     export http_proxy='http://www-cache.reith.bbc.co.uk:80'
     export https_proxy='http://www-cache.reith.bbc.co.uk:80'
@@ -74,13 +74,13 @@ if [ $NETWORK_LOCATION = 'BBC On Network' ]; then
     git config --global http.proxy $http_proxy
 
     # If SSH config has been prefixed with an underscore, move it back so it can be used
-	if [ -f ~/.ssh/_config ] then
+	if [ -f ~/.ssh/_config ]; then
 
         mv ~/.ssh/_config ~/.ssh/config
 
-	fi
+	fi;
 else
-    echo 'Disabling Reith Proxies'
+    echo '!-- Disabling Reith Proxies --!'
 
     unset http_proxy
     unset https_proxy
@@ -94,12 +94,12 @@ else
 
     git config --global --unset http.proxy
 
-    if [ -f ~/.ssh/config ] then
+    if [ -f ~/.ssh/config ]; then
 
         # prefix config file in SSH (So git/mercural are not going through reith)
     	mv ~/.ssh/config ~/.ssh/_config
 
-    fi
+    fi;
 fi;
 
 # Color grep results
