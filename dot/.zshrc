@@ -74,9 +74,10 @@ if [ $NETWORK_LOCATION = 'BBC On Network' ]; then
     git config --global http.proxy $http_proxy
 
     # If SSH config has been prefixed with an underscore, move it back so it can be used
-	if [ -f ~/.ssh/_config ]
-        then
-        	mv ~/.ssh/_config ~/.ssh/config
+	if [ -f ~/.ssh/_config ] then
+
+        mv ~/.ssh/_config ~/.ssh/config
+
 	fi
 else
     echo 'Disabling Reith Proxies'
@@ -91,10 +92,14 @@ else
     unset FTP_PROXY
     unset SOCKS_PROXY
 
-    # prefix config file in SSH (So git/mercural are not going through reith)
-	mv ~/.ssh/config ~/.ssh/_config
-
     git config --global --unset http.proxy
+
+    if [ -f ~/.ssh/config ] then
+
+        # prefix config file in SSH (So git/mercural are not going through reith)
+    	mv ~/.ssh/config ~/.ssh/_config
+
+    fi
 fi;
 
 # Color grep results
