@@ -1,0 +1,27 @@
+{
+  "name": "specials-board",
+  "theme": "syntax",
+  "version": "0.6.1",
+  "private": false,
+  "description": "This is a dark theme based on the Coda 2 theme, 'Specials Board'.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mikelentini/Specials-Board"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "readme": "This is an Atom theme based on the Coda 2 theme, 'Specials Board'.\n\n![](http://f.cl.ly/items/0b2R073s3e04261Z0120/Screen%20Shot%202014-02-27%20at%203.14.25%20PM.png)\n\n![](http://f.cl.ly/items/3z2e3g0s211W1n2K0j1s/Screen%20Shot%202014-02-27%20at%203.14.32%20PM.png)\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/mikelentini/Specials-Board/issues"
+  },
+  "homepage": "https://github.com/mikelentini/Specials-Board",
+  "_id": "specials-board@0.6.1",
+  "dist": {
+    "shasum": "86da053045af4acf47c600df91c1e1fdb2e1138f"
+  },
+  "_resolved": "/var/folders/s8/5rv8ny717c5dcnfhxpdsp7xs50q3d2/T/d-114226-2451-fjyycx/package.tgz",
+  "_from": "/var/folders/s8/5rv8ny717c5dcnfhxpdsp7xs50q3d2/T/d-114226-2451-fjyycx/package.tgz"
+}

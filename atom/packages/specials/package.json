@@ -1,0 +1,27 @@
+{
+  "name": "specials",
+  "theme": "syntax",
+  "version": "0.2.0",
+  "private": true,
+  "description": "An Atom syntax theme inspired by the Specials Board theme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jpinnix/specials"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "readme": "# specials theme\n\nAn Atom syntax theme inspired by the Specials Board theme.\n\n![Screenshot](https://raw.github.com/jpinnix/specials/master/screenshot.png)\n\nOriginally converted from the [TextMate](https://github.com/lamotta/specialsboard)\ntheme using the [TextMate bundle converter](http://atom.io/docs/latest/converting-a-text-mate-theme).\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/jpinnix/specials/issues"
+  },
+  "homepage": "https://github.com/jpinnix/specials",
+  "_id": "specials@0.2.0",
+  "dist": {
+    "shasum": "86b096c0976df74945cfb571bc1b98365cd1140e"
+  },
+  "_resolved": "/var/folders/s8/5rv8ny717c5dcnfhxpdsp7xs50q3d2/T/d-11428-21413-18k9qm8/package.tgz",
+  "_from": "/var/folders/s8/5rv8ny717c5dcnfhxpdsp7xs50q3d2/T/d-11428-21413-18k9qm8/package.tgz"
+}
