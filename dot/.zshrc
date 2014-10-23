@@ -24,21 +24,16 @@ export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 export PATH="/usr/local/share/npm/bin:$PATH"
 
 # misc alias
-alias s='open -a "Sublime Text 2"'
 alias hd="cd ~"
 alias change_hosts="sudo nano /etc/hosts"
 alias drive="cd ~/Google\ Drive"
 alias sites="cd ~/Google\ Drive/Sites"
 alias ws="cd ~/Workspace"
-alias onesport="cd ~/Workspace/onesport"
-alias live="cd ~/Workspace/liveexperience"
-alias zsh="atom ~/Google\ Drive/System\ Configuration"
+alias onesport="cd ~/Workspace/sport-sandbox/onesport"
+alias live="cd ~/Workspace/sport/sandbox/liveexperience"
+alias zsh="sbl ~/Google\ Drive/System\ Configuration"
 alias willy="ssh root@37.139.31.162"
-
-# Sandbox alias
-alias su='VBoxManage startvm "BBC Sandbox" --type headless'
-alias ss='ssh root@192.168.192.10'
-alias sh='VBoxManage controlvm "BBC Sandbox" poweroff'
+alias ios="open /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone\ Simulator.app"
 
 # Vagrant alias
 alias vs="vagrant suspend"
@@ -56,7 +51,7 @@ alias ga='git add'
 # Proxy stuff
 export NETWORK_LOCATION="$(/usr/sbin/scselect 2>&1 | egrep '^ \* ' | sed 's:.*(\(.*\)):\1:')"
 
-if [ $NETWORK_LOCATION = 'BBC On Network' ]; then
+if [ $NETWORK_LOCATION = 'On BBC Network' ]; then
     echo '!-- Enabling Reith Proxies --!'
 
     export http_proxy='http://www-cache.reith.bbc.co.uk:80'
