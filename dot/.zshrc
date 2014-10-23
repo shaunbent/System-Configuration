@@ -30,10 +30,10 @@ alias drive="cd ~/Google\ Drive"
 alias sites="cd ~/Google\ Drive/Sites"
 alias ws="cd ~/Workspace"
 alias onesport="cd ~/Workspace/sport-sandbox/onesport"
-alias live="cd ~/Workspace/sport/sandbox/liveexperience"
+alias live="cd ~/Workspace/sport-sandbox/liveexperience"
 alias zsh="sbl ~/Google\ Drive/System\ Configuration"
 alias willy="ssh root@37.139.31.162"
-alias ios="open /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone\ Simulator.app"
+alias ios="open /Applications/Xcode.app/Contents/Applications/iOS\ Simulator.app"
 
 # Vagrant alias
 alias vs="vagrant suspend"
