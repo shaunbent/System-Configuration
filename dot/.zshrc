@@ -1,3 +1,6 @@
+# Import ZSH
+export ZSH=$HOME/.oh-my-zsh
+
 # Environment Variables
 export GITHUB_USER='shaunbent'
 
@@ -23,30 +26,40 @@ export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 # So instead I'm moving that to the start of my path
 export PATH="/usr/local/share/npm/bin:$PATH"
 
+
+
 # misc alias
 alias hd="cd ~"
 alias change_hosts="sudo nano /etc/hosts"
 alias drive="cd ~/Google\ Drive"
 alias sites="cd ~/Google\ Drive/Sites"
 alias ws="cd ~/Workspace"
-alias onesport="cd ~/Workspace/sport-sandbox/onesport"
-alias live="cd ~/Workspace/sport-sandbox/liveexperience"
-alias zsh="sbl ~/Google\ Drive/System\ Configuration"
+alias sandbox="cd ~/Workspace/sport-sandbox/"
+alias onesport="cd ~/Workspace/sport-sandbox/projects/onesport"
+alias live="cd ~/Workspace/sport-sandbox/projects/liveexperience"
+# alias morph="cd ~/Workspace/morph"
+alias zsh="atom ~/Google\ Drive/System\ Configuration"
 alias willy="ssh root@37.139.31.162"
-alias ios="open /Applications/Xcode.app/Contents/Applications/iOS\ Simulator.app"
+alias ios="open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app"
+alias vtop="vtop --theme wizard"
+
+alias npm-morph="npm --registry https://npm.morph.int.tools.bbc.co.uk --cert=\"$(cat /etc/pki/certificate.pem)\" --key=\"$(cat /etc/pki/certificate.pem)\" --cafile=/etc/pki/ca-bundle.crt"
 
 # Vagrant alias
 alias vs="vagrant suspend"
 alias vu="vagrant up"
+alias rvu="rake sandbox:up"
 alias vd="vagrant destroy"
-alias vr="vagrant box remove responsive virtualbox"
+alias vrs="restart_sport_sandbox"
 alias vst="vagrant status"
 
 # git alias
-alias gs='git status'
-alias gc='git commit'
-alias gd='git diff'
-alias ga='git add'
+# alias gs='git status'
+# alias gc='git commit'
+# alias gd='git diff'
+# alias ga='git add'
+# alias gh="\open $(git config --get remote.origin.url)"
+alias grt="remove_git_tag"
 
 # Proxy stuff
 export NETWORK_LOCATION="$(/usr/sbin/scselect 2>&1 | egrep '^ \* ' | sed 's:.*(\(.*\)):\1:')"
@@ -107,9 +120,14 @@ if ls --color -d . > /dev/null 2>&1; then
     export LS_COLORS="di=34:ln=36:so=35;40:pi=1;35;40:ex=33:bd=32;40:cd=33;40:su=31:sg=1;31:tw=1;35:ow=35:or=31;40:"
 elif ls -G -d . > /dev/null 2>&1; then
     alias ls='ls -G'
-    export CLICOLOR=1
+     CLICOLOR=1
     export LSCOLORS=exgxfaFadxcadabxBxFxfx
 fi
+
+# Generate release notes by diffing the commits between two tags
+function git-release-notes() {
+    git log $1...$2 --oneline | sed -e 's/^/\* /' | tail -n +2 | pbcopy;
+}
 
 # Create a new directory and enter it
 function md() {
@@ -124,6 +142,18 @@ function gz() {
     gzip -c "$1" | wc -c
 }
 
+# reset the sport sandbox
+function restart_sport_sandbox {
+    CURRENT_PATH=$(pwd)
+    cd ~/Workspace/sport-sandbox;rake sandbox:rs;cd $CURRENT_PATH
+}
+
+# remove git tag
+function remove_git_tag() {
+    git tag -d "$1"
+    git push origin :refs/tags/"$1"
+}
+
 # Auto completion
 autoload -U compinit
 compinit -C
@@ -131,17 +161,6 @@ compinit -C
 # case-insensitive (all), partial-word and then substring completion
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' \
     'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
-
-# Convert movie file to animated gif
-gif-ify() {
-    if [[ -n "$1" && -n "$2" ]]; then
-        ffmpeg -i $1 -pix_fmt rgb24 temp.gif
-        convert -layers Optimize temp.gif $2
-        rm temp.gif
-    else
-        echo "proper usage: gif-ify <input_movie.mov> <output_file.gif>. You DO need to include extensions."
-    fi
-}
 
 function restart_finder() {
     killall Finder
@@ -157,6 +176,10 @@ function hide_hidden_files() {
     restart_finder
 }
 
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
+
 set completion-ignore-case on
 
 # Make the delete key (or Fn + Delete on the Mac) work instead of outputting a ~
@@ -168,5 +191,10 @@ bindkey "\e[3~" delete-char
 # Don’t clear the screen after quitting a manual page
 export MANPAGER="less -X"
 
-# source $ZSH/oh-my-zsh.sh
-source "$syncfolder/dot/prompt.zsh"
+fpath+=("/usr/local/share/zsh/site-functions")
+
+autoload -U promptinit && promptinit
+
+PURE_PROMPT_SYMBOL="$"
+
+prompt pure

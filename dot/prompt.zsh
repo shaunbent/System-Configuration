@@ -4,7 +4,7 @@
 # MIT License
 
 # Change this to your own username
-DEFAULT_USERNAME='bents02'
+DEFAULT_USERNAME='shaunbent'
 
 # Threshold (sec) for showing cmd exec time
 CMD_MAX_EXEC_TIME=5
@@ -41,6 +41,17 @@ git_dirty() {
     command git diff --quiet --ignore-submodules HEAD &>/dev/null; [ $? -eq 1 ] && echo '*'
 }
 
+check_git_arrows() {
+	# check if there is an upstream configured for this branch
+	command git rev-parse --abbrev-ref @'{u}' &>/dev/null || return
+
+	local arrows=""
+	(( $(command git rev-list --right-only --count HEAD...@'{u}' 2>/dev/null) > 0 )) && arrows='⇣'
+	(( $(command git rev-list --left-only --count HEAD...@'{u}' 2>/dev/null) > 0 )) && arrows+='⇡'
+	# output the arrows
+	[[ "$arrows" != "" ]] && echo " ${arrows}"
+}
+
 # Displays the exec time of the last command if set threshold was exceeded
 cmd_exec_time() {
     local stop=`date +%s`
@@ -63,7 +74,7 @@ precmd() {
 
     vcs_info
     # Add `%*` to display the time
-    print -P '\n%F{yellow}%~%F{236}%F{red}$vcs_info_msg_0_`git_dirty` %F{blue}$username%f %F{green}`cmd_exec_time`%f'
+    print -P '\n%F{yellow}%~%F{236}%F{red}$vcs_info_msg_0_`prompt_pure_check_git_arrows` %F{blue}$username%f %F{green}`cmd_exec_time`%f'
     # Reset value since `preexec` isn't always triggered
     unset cmd_timestamp
 }
