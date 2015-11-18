@@ -10,7 +10,7 @@ function install_brews() {
     brew tap caskroom/homebrew-cask
 
     brews=( git node chruby ruby-install phantomjs wget \
-            cmake terminal-notifier brew-cask siege )
+            cmake brew-cask )
 
     for item in "${brews[@]}"
         do
@@ -19,11 +19,9 @@ function install_brews() {
 }
 
 function install_software() {
-    casks=( atom adobe-creative-cloud box-sync alfred appcleaner rightzoom cloudapp vlc \
-          xscope cleanmymac google-chrome firefox qlstephen qlmarkdown quicklook-json \
-          quicklook-csv betterzipql suspicious-package evernote filezilla google-drive \
-          imageoptim opera paparazzi remote-desktop-connection sequel-pro skype sourcetree \
-          vagrant virtualbox )
+    casks=( atom box-sync vlc google-chrome firefox evernote filezilla google-drive \
+          imageoptim opera remote-desktop-connection sequel-pro skype sourcetree \
+          vagrant virtualbox slack iterm2 handbrake )
 
     for item in "${casks[@]}"
         do
@@ -44,4 +42,4 @@ install_oh_my_zsh && \
 echo "Bitch, I've installed all the software we can.
 Check the README to see if there is anything else.
 Don't forget to start Google Drive and login so it starts sync'ing files.
-Then execute install-complete.sh after Dropbox has finished sync'ing (see README for instructions)"
+Then execute install-complete.sh after Google Drive has finished sync'ing (see README for instructions)"
