@@ -54,11 +54,6 @@ alias vrs="restart_sport_sandbox"
 alias vst="vagrant status"
 
 # git alias
-# alias gs='git status'
-# alias gc='git commit'
-# alias gd='git diff'
-# alias ga='git add'
-# alias gh="\open $(git config --get remote.origin.url)"
 alias grt="remove_git_tag"
 
 # Proxy stuff
@@ -176,7 +171,7 @@ function hide_hidden_files() {
     restart_finder
 }
 
-plugins=(git)
+plugins=(git wd)
 
 source $ZSH/oh-my-zsh.sh
 

@@ -1,0 +1,56 @@
+"*":
+  editor:
+    invisibles: {}
+    fontFamily: "Fira Code"
+    preferredLineLength: 120
+    tabLength: 4
+    fontSize: 17
+  core:
+    customFileTypes:
+      "source.php": [
+        ".spv"
+      ]
+      source: [
+        "[object Object]"
+      ]
+    themes: [
+      "atom-material-ui"
+      "atom-material-syntax"
+    ]
+    disabledPackages: [
+      "language-clojure"
+      "language-coffee-script"
+      "language-csharp"
+      "language-go"
+      "language-make"
+      "language-objective-c"
+      "language-perl"
+      "language-python"
+      "language-toml"
+    ]
+  "exception-reporting":
+    userId: "d3a26305-245f-b610-a4e1-90c4f994dd6b"
+  welcome:
+    showOnStartup: false
+  react: {}
+  "autocomplete-plus": {}
+  "tool-bar":
+    position: "Left"
+  "one-dark-ui": {}
+  "atom-material-ui":
+    accentColor: "Cyan"
+    altCmdPalette: true
+    panelContrast: true
+    slimScrollbar: true
+    rippleAccentColor: true
+  pigments: {}
+  "copy-as-rtf":
+    fontface: "Fira Code"
+    fontsize: 17
+  "atom-color-highlight": {}
+".sass.source":
+  editor:
+    preferredLineLength: 120
+".scss.source":
+  editor:
+    preferredLineLength: 120
