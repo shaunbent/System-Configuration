@@ -119,11 +119,6 @@ elif ls -G -d . > /dev/null 2>&1; then
     export LSCOLORS=exgxfaFadxcadabxBxFxfx
 fi
 
-# Generate release notes by diffing the commits between two tags
-function git-release-notes() {
-    git log $1...$2 --oneline | sed -e 's/^/\* /' | tail -n +2 | pbcopy;
-}
-
 # Create a new directory and enter it
 function md() {
     mkdir -p "$@" && cd "$@"
@@ -135,6 +130,11 @@ function gz() {
     cat "$1" | wc -c
     echo "gzipped size (bytes): "
     gzip -c "$1" | wc -c
+}
+
+# copy me ssh key
+function copy-ssh-key() {
+    cat ~/.ssh/id_rsa.pub | ssh $1 "mkdir -p ~/.ssh && cat >>  ~/.ssh/authorized_keys"
 }
 
 # reset the sport sandbox
@@ -149,6 +149,28 @@ function remove_git_tag() {
     git push origin :refs/tags/"$1"
 }
 
+# Generate release notes by diffing the commits between two tags
+function git-release-notes() {
+    git log $1...$2 --oneline | sed -e 's/^/\* /' | tail -n +2 | pbcopy;
+}
+
+# Give finder a bit of kick
+function restart_finder() {
+    killall Finder
+}
+
+# Lets see them hidden files
+function show_hidden_files() {
+    defaults write com.apple.finder AppleShowAllFiles TRUE
+    restart_finder
+}
+
+# I dont want to see them hidden files
+function hide_hidden_files() {
+    defaults write com.apple.finder AppleShowAllFiles FALSE
+    restart_finder
+}
+
 # Auto completion
 autoload -U compinit
 compinit -C
@@ -156,20 +178,6 @@ compinit -C
 # case-insensitive (all), partial-word and then substring completion
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' \
     'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
-
-function restart_finder() {
-    killall Finder
-}
-
-function show_hidden_files() {
-    defaults write com.apple.finder AppleShowAllFiles TRUE
-    restart_finder
-}
-
-function hide_hidden_files() {
-    defaults write com.apple.finder AppleShowAllFiles FALSE
-    restart_finder
-}
 
 plugins=(git wd)
 
