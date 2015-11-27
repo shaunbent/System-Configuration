@@ -3,63 +3,40 @@
 	name = Shaun Bent
 
 [alias]
-  st = status
-  sts = status -sb
-  unstage = reset HEAD --
+	st = status
+	sts = status -sb
+	unstage = reset HEAD --
 
 [core]
-  excludesfiles = ~/.gitignore_global
-	excludesfile = /Users/bents02/.gitignore_global
+	excludesfiles = ~/.gitignore_global
+ 	excludesfile = ~/.gitignore_global
 
 [color]
-  ui = true
-  commit = red
+	ui = true
+	commit = red
 
 [color "branch"]
-  current = yellow reverse
-  local = yellow
-  remote = green
+	current = yellow reverse
+	local = yellow
+	remote = green
 
 [color "diff"]
-  meta = yellow
-  frag = magenta
-  old = red
-  new = green
+	meta = yellow
+	frag = magenta
+	old = red
+	new = green
 
 [color "status"]
-  added = green
-  changed = red
-  untracked = blue
+	added = green
+	changed = red
+	untracked = blue
 
 [push]
 	default = current
 
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-
-[mergetool "sourcetree"]
-	cmd = /opt/homebrew-cask/Caskroom/sourcetree/1.9.4/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
-[http]
 [url "https://github"]
 	insteadOf = git://github
-[http]
-[http]
-[http]
-[http]
-[http]
-[http]
-[http]
-[http]
-[http]
-[http]
-[http]
-[http]
-[http]
-[http]
 [filter "lfs"]
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
 	required = true
-[http]
