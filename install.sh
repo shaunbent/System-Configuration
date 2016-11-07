@@ -3,7 +3,7 @@ function install_xcode() {
 }
 
 function install_homebrew() {
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"§
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 }
 
 function install_brews() {
@@ -23,13 +23,13 @@ function install_node_packages() {
 }
 
 function install_software() {
-    casks=( atom box-sync vlc google-chrome firefox evernote filezilla google-drive \
-          imageoptim opera remote-desktop-connection sequel-pro skype sourcetree \
+    casks=( atom vlc google-chrome firefox evernote filezilla \
+          imageoptim opera remote-desktop-connection sequel-pro skype \
           vagrant virtualbox slack iterm2 handbrake )
 
     for item in "${casks[@]}"
         do
-            brew cask install $item
+            brew cask install $item --appdir=/Applications
     done
 }
 
