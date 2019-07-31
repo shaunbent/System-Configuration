@@ -1,15 +1,17 @@
 [user]
-	email = shaunbent@me.com
+	email = shaunb@spotify.com
 	name = Shaun Bent
 
 [alias]
 	st = status
 	sts = status -sb
 	unstage = reset HEAD --
+	br = !git for-each-ref --sort='authordate:iso8601' --format=' %(authordate:relative)%09%(refname)' refs/heads | sed 's/refs\\/heads\\/    //g'
 
 [core]
 	excludesfiles = ~/.gitignore_global
  	excludesfile = ~/.gitignore_global
+	editor = nano
 
 [color]
 	ui = true
@@ -36,8 +38,9 @@
 
 [url "https://github"]
 	insteadOf = git://github
-	
+
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
 	required = true
+	process = git-lfs filter-process

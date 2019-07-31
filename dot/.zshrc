@@ -23,7 +23,7 @@ if `tty -s`; then
 fi
 
 # reorder PATH so local bin is first
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:~/.composer/vendor/bin
 
 # When installing Node via Homebrew you may need to add NPM to your $PATH
     # export PATH="$PATH:/usr/local/share/npm/bin"
@@ -36,14 +36,18 @@ alias hd="cd ~"
 alias change_hosts="sudo nano /etc/hosts"
 alias drive="cd ~/Google\ Drive"
 alias sites="cd ~/Google\ Drive/Sites"
-alias ws="cd ~/Workspace/"
-alias zsh="atom ~/Google\ Drive/System\ Configuration"
-alias willy="ssh root@37.139.31.162"
+alias ws="cd ~/Dev/"
+alias zsh="code ~/Google\ Drive/System\ Configuration"
 alias ios="open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app"
 alias vtop="vtop --theme wizard"
+alias get-some='yarn && yarn start'
 
 # git alias
 alias grt="remove_git_tag"
+
+# spotify
+alias spm='npm --registry https://artifactory.spotify.net/artifactory/api/npm/virtual-npm --userconfig ~/.spmrc --always-auth=true'
+alias spotifier="/Applications/Spotify.app/Contents/MacOS/Spotify --app-directory=/Users/shaunbent/Dev/desktop/client-desktop/ui/apps -mu=development --ignore-certificate-errors --enable-developer-mode=true --app-icon-overlay=#ad2f94^👨‍🎤^#f9e445"
 
 # Color grep results
 export GREP_OPTIONS='--color=auto'
@@ -112,8 +116,8 @@ function hide_hidden_files() {
 }
 
 # NVM stuff
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 # Auto completion
 autoload -U compinit
@@ -123,7 +127,7 @@ compinit -C
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' \
     'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
-plugins=(git wd)
+plugins=(git wd zsh-completions zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -147,3 +151,12 @@ PURE_PROMPT_SYMBOL="$"
 prompt pure
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/shaunbent/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/shaunbent/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/shaunbent/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/shaunbent/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
