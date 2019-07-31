@@ -9,8 +9,7 @@ function install_homebrew() {
 function install_brews() {
     brew tap caskroom/homebrew-cask
 
-    brews=( git node chruby ruby-install phantomjs wget \
-            cmake brew-cask )
+    brews=( git node wget cmake )
 
     for item in "${brews[@]}"
         do
@@ -19,18 +18,7 @@ function install_brews() {
 }
 
 function install_node_packages() {
-    npm install -g bower grunt-cli jshint pure-prompt
-}
-
-function install_software() {
-    casks=( atom vlc google-chrome firefox evernote filezilla \
-          imageoptim opera remote-desktop-connection sequel-pro skype \
-          vagrant virtualbox slack iterm2 handbrake )
-
-    for item in "${casks[@]}"
-        do
-            brew cask install $item --appdir=/Applications
-    done
+    npm install -g yarn gatsby-cli pure-prompt
 }
 
 function install_oh_my_zsh() {
@@ -89,11 +77,10 @@ function misc_osx_stuff() {
     defaults write com.apple.dock wvous-bl-modifier -int 0
 }
 
-install_xcode && \
+# install_xcode && \
 install_homebrew && \
 install_brews && \
 install_node_packages && \
-install_software && \
 install_oh_my_zsh && \
 misc_osx_stuff && \
 
